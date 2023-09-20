@@ -7,7 +7,7 @@ tap_install:
       ingress_domain: tap.ss.cloudmonk.me
       ingress_issuer: ""
       image_registry:
-        project_path: tap30c5a3c2.azurecr.io # Image registry project path (e.g. myregistry.azurecr.io/tap/tap-images)
+        project_path: tap30c5a3c2.azurecr.io/tap/tap-images # Image registry project path (e.g. myregistry.azurecr.io/tap/tap-images)
         username: tap30c5a3c2
 
     ceip_policy_disclosed: true
