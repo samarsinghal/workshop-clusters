@@ -1,0 +1,27 @@
+---
+tap_install:
+  values:
+    profile: full
+
+    shared:
+      ingress_domain: tap.ss.cloudmonk.me
+      ingress_issuer: ""
+      image_registry:
+        project_path: tap30c5a3c2.azurecr.io # Image registry project path (e.g. myregistry.azurecr.io/tap/tap-images)
+        username: tap30c5a3c2
+
+    ceip_policy_disclosed: true
+
+    # These packages will be deprecated in future versions of TAP, so we will exclude them to free up space on the cluster
+    excluded_packages:
+      - learningcenter.tanzu.vmware.com
+      - workshops.learningcenter.tanzu.vmware.com
+      - eventing.tanzu.vmware.com
+
+    tap_gui:
+      service_type: ClusterIP
+      ingressEnabled: "true"
+      app_config:
+        auth:
+          allowGuestAccess: true
+          environment: development
