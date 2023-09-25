@@ -3,6 +3,19 @@ tap_install:
   values:
     profile: full
 
+    supply_chain: testing_scanning
+    
+    metadata_store:
+      app_service_type: ClusterIP
+      ns_for_export_app_cert: "*"
+
+    scanning:
+      metadataStore:
+        url: ""
+
+    grype:
+      targetImagePullSecret: registry-credentials
+
     shared:
       ingress_domain: tap.ss.cloudmonk.me
       ingress_issuer: ""
@@ -30,6 +43,17 @@ tap_install:
       tls:
         namespace: contour-tls
         secretName: tls
+      metadataStoreAutoconfiguration: true
+
+    ootb_supply_chain_testing_scanning:
+      gitops:
+        ssh_secret: git-https
+        branch: main
+        commit_message: "Update from TAP Supply Chain Choreographer"
+        server_address: https://github.com/
+        repository_owner: samarsinghal
+        repository_name: tap-deliveries
+
 
     namespace_provisioner:
       controller: false
