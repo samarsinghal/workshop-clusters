@@ -37,6 +37,10 @@ tap_install:
       service_type: ClusterIP
       ingressEnabled: "true"
       app_config:
+        catalog:
+          locations:
+            - type: url
+              target: https://github.com/Tanzu-Solutions-Engineering/tanzu-java-web-app/blob/main/catalog/catalog-info.yaml
         auth:
           allowGuestAccess: true
           environment: development
