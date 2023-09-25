@@ -37,6 +37,9 @@ tap_install:
       service_type: ClusterIP
       ingressEnabled: "true"
       app_config:
+        integrations:
+          github:
+            - host: github.com
         catalog:
           locations:
             - type: url
