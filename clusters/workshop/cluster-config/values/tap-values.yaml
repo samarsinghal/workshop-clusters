@@ -10,6 +10,10 @@ tap_install:
         project_path: tap30c5a3c2.azurecr.io/tap/tap-images # Image registry project path (e.g. myregistry.azurecr.io/tap/tap-images)
         username: tap30c5a3c2
 
+    cnrs:
+      default_tls_secret: contour-tls/tls
+      domain_template: "{{.Name}}-{{.Namespace}}.{{.Domain}}" # this is a go-template
+
     ceip_policy_disclosed: true
 
     # These packages will be deprecated in future versions of TAP, so we will exclude them to free up space on the cluster
@@ -23,3 +27,6 @@ tap_install:
         auth:
           allowGuestAccess: true
           environment: development
+      tls:
+        namespace: contour-tls
+        secretName: tls
